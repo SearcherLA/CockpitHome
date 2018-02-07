@@ -1,5 +1,5 @@
 <header class="main-header">
-  <a class="logo" href="/">Cockpit Home</a>
+  <a class="logo" href="/"><b>Cockpit</b>Home</a>
   <nav class="navbar fixed navbar-static-top">
     <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
       <span class="sr-only">Toggle navigation</span>
@@ -239,7 +239,7 @@
                 <a href="#" class="btn btn-default btn-flat">Profile</a>
               </div>
               <div class="pull-right">
-                <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                <%= link_to "Logout", destroy_user_session_path, :method => :delete, :class => "btn btn-default btn-flat" %>
               </div>
             </li>
           </ul>

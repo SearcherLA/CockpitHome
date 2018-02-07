@@ -1,0 +1,33 @@
+<div class="login-box">
+  <div class="login-logo">
+    <a href="#"><b>Cockpit</b>Home</a>
+  </div>
+  <!-- /.login-logo -->
+
+  <div class="login-box-body">
+    <p class="login-box-msg">Bitte melden Sie sich zuerst an</p>
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <div class="form-group has-feedback">
+        <input type="email" class="form-control" placeholder="Email">
+        <span class="fa fa-envelope form-control-feedback"></span>
+      </div>
+      <div class="form-group has-feedback">
+        <input type="password" class="form-control" placeholder="Passwort">
+        <span class="fa fa-lock form-control-feedback"></span>
+      </div>
+      <div class="row">
+        <!-- /.col -->
+        <div class="col-xs-12">
+          <button type="submit" class="btn btn-primary btn-block btn-flat">Anmelden</button>
+        </div>
+        <!-- /.col -->
+      </div>
+    <% end %>
+
+    <br>
+    <%= link_to 'Registrieren', new_registration_path(resource_name), :class => 'text-center' %>
+
+  </div>
+  <!-- /.login-box-body -->
+</div>
+<!-- /.login-box -->
