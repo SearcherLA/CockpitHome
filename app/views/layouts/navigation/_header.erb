@@ -1,9 +1,6 @@
 <header class="main-header">
   <a class="logo" href="/"><b>Cockpit</b>Home</a>
   <nav class="navbar fixed navbar-static-top">
-    <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
-      <span class="sr-only">Toggle navigation</span>
-    </a>
     <div class="navbar-custom-menu">
       <% if current_user then %>
         <ul class="nav navbar-nav">
@@ -213,7 +210,7 @@
             <ul class="dropdown-menu">
               <!-- User image -->
               <li class="user-header">
-                <%= image_tag("user2-160x160.jpg", :class => "img-circle", alt: "Porträt") %>
+                <%= image_tag(current_user.avatar.url(:medium), :class => "img-circle", alt: "Porträt") %>
                 <p>
                   Alexander Pierce - Web Developer
                   <small>Member since Nov. 2012</small>
@@ -237,7 +234,7 @@
               <!-- Menu Footer-->
               <li class="user-footer">
                 <div class="pull-left">
-                  <a href="#" class="btn btn-default btn-flat">Profile</a>
+                  <%= link_to "Profil", edit_user_registration_path, :class => "btn btn-default btn-flat" %>
                 </div>
                 <div class="pull-right">
                   <%= link_to "Logout", destroy_user_session_path, :method => :delete, :class => "btn btn-default btn-flat" %>
