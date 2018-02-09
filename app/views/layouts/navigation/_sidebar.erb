@@ -3,11 +3,11 @@
     <% if current_user then %>
       <div class="user-panel">
         <div class="pull-left image">
-          <img alt="User Image" class="user-image" src="http://placehold.it/160x160" />
+          <%= image_tag(current_user.avatar.url(:medium), :class => "img-circle", alt: "Porträt") %>
         </div>
         <div class="pull-left info">
           <p>
-            User Name
+            <%= current_user.firstname %> <%= current_user.lastname %>
           </p>
           <a href="#">
             <i class="fa fa-circle text-success">
