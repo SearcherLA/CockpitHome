@@ -4,15 +4,19 @@
     Profil bearbeiten <small></small>
   </h1>
   <ol class="breadcrumb">
-    <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+    <li>
+      <%= link_to static_dashboard_path do %>
+        <i class="fa fa-dashboard"></i> Home
+      <% end %>
+    </li>
     <li class="active">Profil bearbeiten</li>
   </ol>
 </section>
 <section class="content">
   <div class="row">
-    <div class="col-lg-6 col-xs-6">
+    <div class="col-lg-6 col-xs-12 col-lg-offset-3">
       <div class="box box-widget widget-user">
-        <div class="widget-user-header bg-aqua-active">
+        <div class="widget-user-header bg-light-blue-gradient">
           <h3><%= current_user.firstname %> <%= current_user.lastname %></h3>
           <h5>Administrator</h5>
         </div>
@@ -21,69 +25,46 @@
         </div>
         <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { :multipart => true }) do |f| %>
         <%= devise_error_messages! %>
-        <div class="box-footer">
-          <div class="form-group">
+        <div class="box-body">
+          <div class="form-group has-feedback">
             <%= f.label :firstname, "Vorname" %>
             <%= f.text_field :firstname, :class => "form-control" %>
+            <span class="fa fa-user form-control-feedback"></span>
           </div>
-          <div class="form-group">
+          <div class="form-group has-feedback">
             <%= f.label :lastname, "Nachname" %>
             <%= f.text_field :lastname, :class => "form-control" %>
+            <span class="fa fa-user form-control-feedback"></span>
           </div>
           <div class="form-group has-feedback">
             <%= f.label :email, "Email" %>
             <%= f.email_field :email, class: "form-control", autofocus: true, autocomplete: "email" %>
             <span class="fa fa-envelope form-control-feedback"></span>
           </div>
+          <br />
           <div class="form-group">
-            <%= f.label :avatar, "Avatar" %>
+            <%= f.label :avatar, "Avatar ändern" %>
             <%= f.file_field(:avatar) %>
           </div>
-
-          <div class="form-group">
+          <br />
+          <div class="form-group has-feedback">
             <%= f.label :password, "Passwort" %> <i>(nur wenn Passwort geändert werden soll)</i><br />
             <%= f.password_field :password, autocomplete: "off", :class => "form-control" %>
             <% if @minimum_password_length %>
               <em><%= @minimum_password_length %> Zeichen minimum</em>
             <% end %>
+            <span class="fa fa-lock form-control-feedback"></span>
           </div>
-          <div class="form-group">
+          <div class="form-group has-feedback">
             <%= f.label :password_confirmation, "Passwort-Wiederholung" %><br />
             <%= f.password_field :password_confirmation, autocomplete: "off", :class => "form-control" %>
+            <span class="fa fa-lock form-control-feedback"></span>
           </div>
         </div>
-      </div>
-    </div>
-    <div class="col-lg-6 col-xs-6">
-      <div class="box box-danger">
-        <div class="box-header with-border">
-          <h3 class="box-title">Account löschen</h3>
-        </div>
-        <div class="box-body">
-          <p>Sie möchten dieses Portal endgültig verlassen und Ihr Benutzerkonto löschen ?</p>
-          <br>
-          <p><i>Bitte beachten Sie, dass dieser Vorgang nicht rückgängig gemacht werden kann.</i></p>
-          <br>
-          <%= button_to "Account endgültig löschen", registration_path(resource_name), data: { confirm: "Sind sie sicher?" }, method: :delete, :class => "btn btn-lg btn-flat btn-block btn-danger" %></p>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-lg-6 col-xs-6">
-      <div class="box box-success">
-        <div class="box-header with-border">
-          <h3 class=box-title>Änderungen speichern</h3>
-        </div>
-        <div class="box-body">
-          <p>Bitte geben Sie Ihr Passwort an und klicken Sie anschließend auf speichern.</p>
-          <br>
-          <div class="form-group">
-            <%= f.label :current_password, "aktuelles Passwort" %><br />
-            <%= f.password_field :current_password, autocomplete: "off", :class => "form-control" %>
-          </div>
-          <div class="actions">
-            <%= f.submit "Speichern", :class => "btn btn-lg btn-flat btn-block btn-success"  %>
+        <div class="box-footer with-border">
+          <div class="input-group">
+            <%= f.password_field :current_password, autocomplete: "off", :class => "form-control", :placeholder => "Bitte aktuelles Passwort eingeben" %>
+            <span class="input-group-btn"><%= f.submit "Änderungen speichern", :class => "btn btn-flat btn-danger"  %></span>
           </div>
         </div>
       </div>
