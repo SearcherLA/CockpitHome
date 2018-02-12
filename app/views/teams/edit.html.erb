@@ -1,6 +1,40 @@
-<h1>Editing Team</h1>
+<!-- Content Header (Page header) -->
+<section class="content-header">
+  <h1>
+    Stammdaten
+    <small>Teams</small>
+  </h1>
+  <ol class="breadcrumb">
+    <li>
+      <%= link_to static_dashboard_path do %>
+        <i class="fa fa-dashboard"></i> Home
+      <% end %>
+    </li>
+    <li>
+      <%= link_to teams_path do %>
+        <i class="fa fa-users"></i> Teams
+      <% end %>
+    </li>
+    <li class="active">
+      <i class="fa fa-users"></i> Team bearbeiten
+    </li>
+  </ol>
+</section>
 
-<%= render 'form', team: @team %>
+<section class="content">
+  <div class="row">
+    <div class="col-lg-6 col-xs-12 col-lg-offset-3">
+      <div class="box box-primary">
+        <div class="box-header">
+          <span class="fa fa-users"></span><h3 class="box-title">Team bearbeiten</h3>
+        </div>
+        <div class="box-body">
+          <%= render 'form', team: @team %>
+        </div>
+        <div class="box-footer">
 
-<%= link_to 'Show', @team %> |
-<%= link_to 'Back', teams_path %>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
