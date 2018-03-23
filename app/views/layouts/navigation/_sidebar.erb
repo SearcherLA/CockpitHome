@@ -1,5 +1,5 @@
-<div class="main-sidebar">
-  <div class="sidebar">
+<aside class="main-sidebar">
+  <section class="sidebar">
     <% if current_user then %>
       <div class="user-panel">
         <div class="pull-left image">
@@ -24,20 +24,12 @@
           </i></button></span>
         </div>
       </form>
-      <ul class="sidebar-menu">
-        <li class="header">
-          Hauptmenu
-        </li>
-        <li class="active treeview">
+      <ul class="sidebar-menu" data-widget="tree">
+        <li class="header">Hauptmenu</li>
+        <li class="treeview active">
           <%= link_to static_dashboard_path do %>
             <%= content_tag :i, "", :class => "fa fa-dashboard" %>
             <%= content_tag :span, "Dashboard" %>
-          <% end %>
-        </li>
-        <li>
-          <%= link_to teams_path do %>
-            <%= content_tag :i, "", :class => "fa fa-users" %>
-            <%= content_tag :span, "Teams" %>
           <% end %>
         </li>
         <li class="treeview">
@@ -52,20 +44,15 @@
                 <%= content_tag :span, "Teams" %>
               <% end %>
             </li>
-          </ul>
-        </li>
-        <li class="treeview">
-          <a href="#"><span>Multilevel</span><i class="fa fa-angle-left pull-right"></i></a>
-          <ul class="treeview-menu">
             <li>
-              <a href="#"> Link in level 2</a>
-            </li>
-            <li>
-              <a href="#"> Link in level 2</a>
+              <%= link_to solution_architects_path do %>
+                <%= content_tag :i, "", :class => "fa fa-user" %>
+                <%= content_tag :span, "Solution Architects" %>
+              <% end %>
             </li>
           </ul>
         </li>
       </ul>
     <% end %>
-  </div>
-</div>
+  </section>
+</aside>

@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Firstname:</strong>
+  <%= @solution_architect.firstname %>
+</p>
+
+<p>
+  <strong>Lastname:</strong>
+  <%= @solution_architect.lastname %>
+</p>
+
+<p>
+  <strong>Shortcut:</strong>
+  <%= @solution_architect.shortcut %>
+</p>
+
+<p>
+  <strong>Team:</strong>
+  <%= @solution_architect.team %>
+</p>
+
+<%= link_to 'Edit', edit_solution_architect_path(@solution_architect) %> |
+<%= link_to 'Back', solution_architects_path %>

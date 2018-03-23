@@ -1,0 +1,66 @@
+<!-- Content Header (Page header) -->
+<section class="content-header">
+  <h1>
+    Stammdaten
+    <small>Solution Architects</small>
+  </h1>
+  <ol class="breadcrumb">
+    <li>
+      <%= link_to static_dashboard_path do %>
+        <i class="fa fa-dashboard"></i> Home
+      <% end %>
+    </li>
+    <li class="active">
+      <%= link_to solution_architects_path do %>
+        <i class="fa fa-user"></i> Solution Architects
+      <% end %>
+    </li>
+  </ol>
+</section>
+
+<section class="content">
+  <div class="row">
+    <div class="col-lg-6 col-xs-12 col-lg-offset-3">
+      <div class="box box-primary">
+        <div class="box-header">
+          <span class="fa fa-users"></span><h3 class="box-title">Solution Architects Übersicht</h3>
+        </div>
+        <div class="box-body table-responsive no-padding">
+          <table class="table table-hover">
+            <tbody>
+              <tr>
+                <th>ID</th>
+                <th>Vorname</th>
+                <th>Nachname</th>
+                <th>Team</th>
+                <th>Abkürzung</th>
+              </tr>
+              <% @solution_architects.each do |sa| %>
+                <tr>
+                  <td><%= sa.id %></td>
+                  <td><%= sa.firstname %></td>
+                  <td><%= sa.lastname %></td>
+                  <td><%= sa.team.teamname %></td>
+                  <td>
+                    <%= sa.shortcut %>
+                    <div class="todo-list tools pull-right">
+                      <%= link_to edit_solution_architect_path(sa) do %>
+                        <span class="label label-primary"><i class="fa fa-edit"></i></span>
+                      <% end %>
+                      <%= link_to sa, method: :delete, data: { confirm: 'Sind Sie sicher?' } do %>
+                        <span class="label label-danger"><i class="fa fa-trash-o"></i></span>
+                      <% end %>
+                    </div>
+                  </td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+        <div class="box-footer clearfix">
+          <%= link_to 'Neuer Solution Architect', new_solution_architect_path, :class => 'btn btn-success btn-flat btn-sm' %>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180211174402) do
+ActiveRecord::Schema.define(version: 20180322131749) do
+
+  create_table "solution_architects", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "firstname"
+    t.string "lastname"
+    t.string "shortcut"
+    t.bigint "team_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["team_id"], name: "index_solution_architects_on_team_id"
+  end
 
   create_table "teams", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "teamname"
@@ -42,4 +52,5 @@ ActiveRecord::Schema.define(version: 20180211174402) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "solution_architects", "teams"
 end
