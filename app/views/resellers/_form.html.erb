@@ -1,0 +1,29 @@
+<%= form_with(model: reseller, local: true) do |form| %>
+  <% if reseller.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(reseller.errors.count, "error") %> prohibited this reseller from being saved:</h2>
+
+      <ul>
+      <% reseller.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <br/>
+  <div class="col-xs-12 col-lg-12">
+    <div class="form-group">
+      <%= form.label :resname, "Reseller Name" %><br />
+      <%= form.text_field :resname, id: :reseller_resname, class: "form-control", autofocus: true %>
+    </div>
+    <div class="form-group">
+      <%= form.label :shortcut, "Abkürzung" %><br />
+      <%= form.text_field :shortcut, id: :reseller_shortcut, class: "form-control" %>
+    </div>
+    <div class="actions">
+      <%= link_to 'Abbrechen', :back, :class => 'btn btn-danger btn-flat btn-sm pull-left' %>
+      <%= form.submit 'Speichern', :class => "btn btn-success btn-flat btn-sm pull-right" %>
+    </div>
+    <br/>
+  </div>
+  <% end %>

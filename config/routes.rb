@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :resellers
   resources :solution_architects
   resources :teams
   devise_for :users, :controllers => { registrations: 'registrations' }

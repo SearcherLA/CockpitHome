@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Resname:</strong>
+  <%= @reseller.resname %>
+</p>
+
+<p>
+  <strong>Shortcut:</strong>
+  <%= @reseller.shortcut %>
+</p>
+
+<%= link_to 'Edit', edit_reseller_path(@reseller) %> |
+<%= link_to 'Back', resellers_path %>
