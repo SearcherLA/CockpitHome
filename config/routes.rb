@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :titles
   resources :resellers
   resources :solution_architects
   resources :teams
